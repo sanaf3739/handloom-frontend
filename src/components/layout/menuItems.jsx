@@ -14,7 +14,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
         <ul className="space-y-3">
           <li>
             <Link
-              to="/categories/Best Seller"
+              to="/categories/best-seller"
               className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
@@ -23,7 +23,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           </li>
           <li>
             <Link
-              to="/categories/Hand Tufted"
+              to="/categories/hand-tufted"
               className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
@@ -32,7 +32,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           </li>
           <li>
             <Link
-              to="/categories/Hand Knotted"
+              to="/categories/hand-knotted"
               className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
@@ -41,7 +41,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           </li>
           <li>
             <Link
-              to="/categories/Hand Woven"
+              to="/categories/hand-woven"
               className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
