@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
-import ProductCardTwo from "../../components/product/ProductCardTwo";
+import ProductCardTwo from "../../components/product/productCardTwo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/slices/productSlice";
 import HandloomBreadcrumb from "../../components/layout/breadcrumb";
