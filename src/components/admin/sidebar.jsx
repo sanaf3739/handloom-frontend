@@ -2,7 +2,7 @@ import { logoutUser } from "../../store/slices/authSlice";
 import { menuItems } from "../../config/menuItems";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 
 const AdminSidebar = () => {
     const location = useLocation();

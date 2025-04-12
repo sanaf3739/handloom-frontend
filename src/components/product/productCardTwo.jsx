@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Heart, ShoppingCart, Expand, Star, ShoppingBag } from "lucide-react";
-import { Link, Navigate, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../store/slices/cartSlice";
 import toast from "react-hot-toast";

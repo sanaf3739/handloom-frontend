@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import {clearCart } from "../../store/slices/cartSlice";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import CartItem from "../../components/shop/cartItem";
 import { useEffect, useState } from "react";
 import { ShoppingCart, Trash2, CreditCard } from "lucide-react";

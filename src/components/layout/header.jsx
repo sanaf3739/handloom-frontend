@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router"; // Fixed import
+import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Menu, ShoppingBag, User, Search } from "lucide-react";
 import { useSelector } from "react-redux";

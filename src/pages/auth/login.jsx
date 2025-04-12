@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../store/slices/authSlice";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Form from "../../components/form/Form";
 import InputField from "../../components/form/InputField";
 
