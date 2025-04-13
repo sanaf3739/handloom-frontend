@@ -216,7 +216,7 @@ export default function AdminProducts() {
               {products.map((product) => (
                 <TableRow key={product._id}>
                   <TableCell>
-                    {product?.images && product.images[0].url ? (
+                    {product?.images && product.images[0] ? (
                       <img
                         src={product.images[0]?.url}
                         alt={product.name}

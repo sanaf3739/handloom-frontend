@@ -130,15 +130,13 @@ export const Header = ({ isOpen, setIsOpen }) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-gray-700"
+          <button
+            className="md:hidden text-gray-700 h-12 w-12 flex items-center justify-center rounded-md hover:bg-gray-100 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <Menu size={24} />
-          </Button>
+            <Menu size={30} />
+          </button>
         </div>
       </div>
     </header>
