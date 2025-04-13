@@ -50,7 +50,7 @@ const ProductDetailPage = () => {
   // Set default main image when product data is available
   useEffect(() => {
     if (selectedProduct && selectedProduct.images && selectedProduct.images.length > 0) {
-      setMainImage(selectedProduct.images[0]);
+      setMainImage(selectedProduct.images[0]?.url);
     }
   }, [selectedProduct]);
 
@@ -109,12 +109,12 @@ const ProductDetailPage = () => {
                   <div 
                     key={index}
                     className={`border cursor-pointer transition-all duration-200 ${
-                      mainImage === image ? 'border-teal-700 shadow-md' : 'border-gray-200 hover:border-gray-400'
+                      mainImage === image?.url ? 'border-teal-700 shadow-md' : 'border-gray-200 hover:border-gray-400'
                     } flex-shrink-0 md:mb-3 w-16 h-16 md:w-auto md:h-auto`}
-                    onClick={() => handleThumbnailClick(image)}
+                    onClick={() => handleThumbnailClick(image?.url)}
                   >
                     <img
-                      src={image}
+                      src={image?.url}
                       alt={`${selectedProduct.name} thumbnail ${index + 1}`}
                       className="w-full h-full object-cover"
                     />

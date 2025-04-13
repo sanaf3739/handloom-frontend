@@ -41,7 +41,7 @@ const ProductCardTwo = ({ product }) => {
       <div className="relative w-full aspect-[3/4]">
         <Link to={`/product/${product._id}`}>
           <img
-            src={product?.images[0] || `http://localhost:8000/uploads/${product.image}`}
+            src={product.images[0].url}
             alt="Red Hand Tufted Melting Persian Design Area Rug"
             className="w-full h-full object-cover"
           />
