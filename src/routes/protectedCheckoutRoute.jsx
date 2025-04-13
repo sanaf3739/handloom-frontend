@@ -6,8 +6,7 @@ const ProtecteCheckoutdRoute = ({ children }) => {
   const { user, loading } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  console.log(from);
+
   useEffect(() => {
     if (!loading) {
       if (!user) {
@@ -21,14 +20,13 @@ const ProtecteCheckoutdRoute = ({ children }) => {
           navigate("/admin/dashboard", { replace: true });
         }
       } else if (user.role === "user") {
-        console.log("ffff");
         navigate("/checkout", { replace: true });
       }
     }
   }, [user, loading, navigate, location.pathname]);
 
   if (loading) {
-    console.log("Loading user data...");
+    // console.log("Loading user data...");
     return (
       <div className="flex items-center justify-center h-screen text-lg">Loading...</div>
     );

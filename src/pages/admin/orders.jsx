@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 const AdminOrders = () => {
   const dispatch = useDispatch();
   const {orders, loading} = useSelector((state) => state.order);
-console.log(orders)
   useEffect(() => {
     dispatch(getOrders());
   }, [dispatch]);

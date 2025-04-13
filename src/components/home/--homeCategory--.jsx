@@ -19,7 +19,6 @@ const HomeCategory = ({ title, category }) => {
 
   // Filter products based on category slug
   const filteredProducts = products.filter((product) => product.category?.slug === category);
-console.log(filteredProducts)
   const [currentPage, setCurrentPage] = useState(0);
   const rugsPerPage = 4;
   const totalPages = Math.ceil(filteredProducts.length / rugsPerPage);

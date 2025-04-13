@@ -26,7 +26,7 @@ const ProtectedRoute = ({children}) => {
   }, [user, loading, navigate, location.pathname]);
 
   if (loading) {
-    console.log("Loading user data...");
+    // console.log("Loading user data...");
     return <div className="flex items-center justify-center h-screen text-lg">Loading...</div>;
   }
 

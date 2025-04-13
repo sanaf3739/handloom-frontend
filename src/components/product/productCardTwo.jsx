@@ -29,7 +29,6 @@ const ProductCardTwo = ({ product }) => {
   const handleAddToCart = () => {
     dispatch(addToCart(product));
     toast.success("added to cart");
-    console.log("added to the cart");
   };
 
   return (

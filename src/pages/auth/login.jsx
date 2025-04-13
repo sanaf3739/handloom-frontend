@@ -10,12 +10,9 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
-  console.log(location)
-  console.log(from)
 
   const handleSubmit = async (data) => {
     const result = await dispatch(loginUser(data));
-    console.log(result);
     if (result.meta.requestStatus === "fulfilled" && result.payload.success) {
       if (result?.payload?.user?.role === "admin") {
         navigate("/admin/dashboard");
