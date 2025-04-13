@@ -48,6 +48,15 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
               Hand Woven
             </Link>
           </li>
+          <li>
+            <Link
+              to="/cart"
+              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              onClick={() => setIsOpen(false)}
+            >
+              Cart
+            </Link>
+          </li>
         </ul>
       </nav>
     // </div>
