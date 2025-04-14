@@ -6,6 +6,7 @@ import {
   decrementQuantity,
   removeFromCart,
 } from "../../store/slices/cartSlice";
+import { createOrder } from "../../store/slices/orderSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
@@ -170,12 +171,12 @@ const Checkout = () => {
     };
 
     try {
-      const { data } = await axios.post(`${API_URL}/orders`, orderData);
+      // const { data } = await axios.post(`${API_URL}/orders`, orderData);
+      const data = await dispatch(createOrder(orderData)).unwrap();
       dispatch(clearCart());
       navigate("/order-success", {
         state: {
-          orderNumber: data.orderNumber,
-          total: cartSummary.total,
+          orderId: data.orderId,
         },
       });
     } catch (error) {

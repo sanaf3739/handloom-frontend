@@ -22,6 +22,7 @@ import AdminCategories from "./pages/admin/categories";
 import AdminSizes from "./pages/admin/sizes";
 import ProductDetailPage from "./pages/shopping/productDetailPage";
 import ProtecteCheckoutdRoute from "./routes/protectedCheckoutRoute";
+import {OrderSuccess} from "./pages/shopping/orderSuccess";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
         <Route path="/categories/:category" element={<CategoryPage />} />
         {/* <Route path="product/:id" element={<ProductDetails />} /> */}
         <Route path="product/:productId" element={<ProductDetailPage />} />
+        <Route path="order-success" element={<OrderSuccess />} />
         <Route path="cart" element={<Cart />} />
         <Route
           path="checkout"
