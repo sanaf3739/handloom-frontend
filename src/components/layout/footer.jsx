@@ -1,7 +1,14 @@
 import React from "react";
-import { FaFacebookF, FaPinterestP, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaPinterestP,
+  FaInstagram,
+  FaTwitter,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
 import { FiChevronUp } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,9 +18,18 @@ const Footer = () => {
         {/* Brand Section */}
         <div>
           {/* <img src="/logo.png" alt="Make in India" className="w-32 mb-4" /> */}
-          <h2 className="text-2xl font-bold mb-4">Handloom Shop</h2>
+          <Link to="/" className="flex items-center space-x-2">
+            <img
+              src="/logo.png"
+              alt="Ibrahim Rug Logo"
+              className="h-14 w-auto object-contain"
+            />
+            {/* Optional: Add text next to logo */}
+            {/* <span className="text-xl font-bold text-gray-800">Ibrahim Rug</span> */}
+          </Link>
           <p className="text-sm">
-            Immerse your space in luxury, style, and comfort with our meticulously crafted pieces.
+            Immerse your space in luxury, style, and comfort with our meticulously crafted
+            pieces.
           </p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4">
@@ -63,9 +79,9 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="text-center mt-6 text-sm border-t pt-4">
+      {/* <div className="text-center mt-6 text-sm border-t pt-4">
         Copyright © 2023 Rida Handloom. All Rights Reserved.
-      </div>
+      </div> */}
 
       {/* Floating Buttons */}
       <div className="fixed bottom-6 right-6 flex flex-col items-end space-y-4 z-10">

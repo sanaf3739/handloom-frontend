@@ -45,19 +45,22 @@ export const Header = ({ isOpen, setIsOpen }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-300 z-50 shadow-md py-6 ${
+      className={`fixed top-0 left-0 right-0 transition-all duration-300 z-50 shadow-md py-3 ${
         show ? "translate-y-0" : "-translate-y-full"
       } ${isScrolled ? "bg-white" : "bg-transparent"}`}
     >
-      <div className="px-5">
+      <div className="px-5 h-14">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <h1 className="text-2xl font-bold">
-            <Link to="/" className="flex items-center">
-              <span className="text-amber-700">Handloom</span>
-              <span className="text-gray-800">Shop</span>
-            </Link>
-          </h1>
+          <Link to="/" className="flex items-center space-x-2">
+            <img
+              src="/logo.png"
+              alt="Ibrahim Rug Logo"
+              className="h-14 w-auto object-contain"
+            />
+            {/* Optional: Add text next to logo */}
+            {/* <span className="text-xl font-bold text-gray-800">Ibrahim Rug</span> */}
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
