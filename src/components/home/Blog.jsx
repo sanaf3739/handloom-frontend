@@ -7,7 +7,7 @@ export default function Blog() {
       title: "Benefits of buying Handloom Carpets",
       date: "Jan 02, 2024",
       comments: 0,
-      author: "Tejveer Singh",
+      author: "Ibrahim Rugs",
       excerpt: "In a world dominated by mass production and mechanization, the allure of handcrafted goods has never been more appealing. Handloom carpets, with their intricate designs and timeless charm, stand as a testament to the beauty and benefits ...",
       image: "https://www.ridahandloom.com/cdn/shop/articles/Obeetee_Carpets-_5_handmade_best_sellers_to_bring_home_900x_a0229032-7139-4216-bcc2-47f1cbca4383_1512x.webp?v=1704191575",
     },
@@ -16,7 +16,7 @@ export default function Blog() {
       title: "Expert Tips on Selecting Hand-Tufted Modern Area Rugs for...",
       date: "Aug 29, 2023",
       comments: 0,
-      author: "Rida Handloom",
+      author: "Ibrahim Rugs",
       excerpt: "Hand-Tufted Modern Area Rugs Guide Introduction: When it comes to interior design, the right rug can be the cornerstone of a well-curated space. In this guide, we will delve into the world of hand-tufted modern area rugs, exploring every...",
       image: "https://www.ridahandloom.com/cdn/shop/articles/photo-1594040226829-7f251ab46d80_1_900x.jpg?v=1703793550",
     }

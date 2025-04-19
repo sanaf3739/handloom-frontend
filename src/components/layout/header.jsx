@@ -63,8 +63,16 @@ export const Header = ({ isOpen, setIsOpen }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-2 lg:space-x-8">
+          <nav className="hidden lg:block">
+            <ul className="flex space-x-3 lg:space-x-8">
+              <li>
+                <Link
+                  to="/"
+                  className="text-gray-700 hover:text-amber-700 transition-colors font-medium"
+                >
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link
                   to="/categories/best-seller"
@@ -101,7 +109,7 @@ export const Header = ({ isOpen, setIsOpen }) => {
           </nav>
 
           {/* Desktop Action Icons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
@@ -134,7 +142,7 @@ export const Header = ({ isOpen, setIsOpen }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700 h-12 w-12 flex items-center justify-center rounded-md hover:bg-gray-100 transition-colors"
+            className="lg:hidden text-gray-700 h-12 w-12 flex items-center justify-center rounded-md hover:bg-gray-100 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >

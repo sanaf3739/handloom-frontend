@@ -14,6 +14,15 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
         <ul className="space-y-3">
           <li>
             <Link
+              to="/"
+              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/categories/best-seller"
               className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}

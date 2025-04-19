@@ -30,9 +30,9 @@ const categories = [
 ];
 
 const slides = [
-  "/images/hero-banner-3.webp",
-  "/images/hero-banner-2.webp",
-  "/images/hero-banner.webp",
+  "/images/banner/home_page_banner_1_1.webp",
+  "/images/banner/home_page_banner_2_2.webp",
+  "/images/banner/home_page_banner_3_3.webp",
 ];
 
 export default function Home() {

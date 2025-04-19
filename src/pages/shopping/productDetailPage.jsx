@@ -9,6 +9,8 @@ import {
   Plus,
   ChevronDown,
   Star,
+  PlaneTakeoff,
+  ShoppingCart,
 } from "lucide-react";
 import { fetchProducts } from "@/store/slices/productSlice";
 import { addToCart } from "@/store/slices/cartSlice";
@@ -19,16 +21,33 @@ const ProductDetailPage = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const { productId } = useParams();
-  
+  const date = new Date();
+  const currentDate = date.getDate();
+  const months = [
+    "Jan",
+    "FEB",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
+  const currentMonth = months[date.getMonth()];
+
   // Find the selected product
   const selectedProduct = products.find((product) => product._id === productId);
   const isAddedInCart = cartItems.filter((cartItem) => cartItem._id === productId);
-  
+
   // State management
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("3X5 FEET");
   const [mainImage, setMainImage] = useState("");
-  
+
   // Available sizes
   const sizes = [
     "3X5 FEET",
@@ -68,7 +87,7 @@ const ProductDetailPage = () => {
   // Quantity handlers
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
-  
+
   // Render star rating
   const renderStars = (rating) => {
     return [...Array(5)].map((_, index) => (
@@ -106,10 +125,12 @@ const ProductDetailPage = () => {
             <div className="order-2 md:order-1 md:w-24 md:mr-4 flex overflow-x-auto md:flex-col md:overflow-visible gap-2 mt-4 md:mt-0">
               {selectedProduct.images &&
                 selectedProduct.images.map((image, index) => (
-                  <div 
+                  <div
                     key={index}
                     className={`border cursor-pointer transition-all duration-200 ${
-                      mainImage === image?.url ? 'border-teal-700 shadow-md' : 'border-gray-200 hover:border-gray-400'
+                      mainImage === image?.url
+                        ? "border-teal-700 shadow-md"
+                        : "border-gray-200 hover:border-gray-400"
                     } flex-shrink-0 md:mb-3 w-16 h-16 md:w-auto md:h-auto`}
                     onClick={() => handleThumbnailClick(image?.url)}
                   >
@@ -125,9 +146,9 @@ const ProductDetailPage = () => {
             {/* Main Image */}
             <div className="order-1 md:order-2 flex-1 border border-gray-200 overflow-hidden">
               {mainImage && (
-                <img 
-                  src={mainImage} 
-                  alt={selectedProduct.name} 
+                <img
+                  src={mainImage}
+                  alt={selectedProduct.name}
                   className="w-full h-full object-contain"
                 />
               )}
@@ -255,18 +276,18 @@ const ProductDetailPage = () => {
 
           {/* Delivery Information */}
           <div className="bg-gray-50 p-4 rounded-md mb-6">
-            <div className="text-sm text-gray-500 mb-1">Estimated arrival</div>
+            <div className="text-sm text-gray-500 mb-1">Estimated Arrival</div>
             <div className="font-medium mb-4">
-              {selectedProduct.estimatedDelivery || "22 Mar - 27 Mar"}
+              {selectedProduct.estimatedDelivery || "15 - 20 Days"}
             </div>
-
+{/* 
             <div className="flex items-center justify-between mb-6">
               <div className="flex flex-col items-center">
                 <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mb-1">
-                  <span className="text-blue-500 text-xs">07</span>
+                  <span className="text-blue-500 text-xs"><ShoppingCart /></span>
                 </div>
                 <div className="text-xs text-center">
-                  07 Mar
+                  {`${currentDate} ${currentMonth}`}
                   <br />
                   <span className="text-gray-500">Order Placed</span>
                 </div>
@@ -276,12 +297,14 @@ const ProductDetailPage = () => {
 
               <div className="flex flex-col items-center">
                 <div className="bg-yellow-100 rounded-full w-10 h-10 flex items-center justify-center mb-1">
-                  <span className="text-yellow-500 text-xs">12</span>
+                  <span className="text-yellow-500 text-xs"><PlaneTakeoff /></span>
                 </div>
                 <div className="text-xs text-center">
-                  12 Mar - 13 Mar
+                  {`${currentDate + 7} ${currentMonth} - ${
+                    currentDate + 8
+                  } ${currentMonth} `}
                   <br />
-                  <span className="text-gray-500">Order dispatched</span>
+                  <span className="text-gray-500">Order dispatches</span>
                 </div>
               </div>
 
@@ -289,7 +312,7 @@ const ProductDetailPage = () => {
 
               <div className="flex flex-col items-center">
                 <div className="bg-green-100 rounded-full w-10 h-10 flex items-center justify-center mb-1">
-                  <span className="text-green-500 text-xs">22</span>
+                  <span className="text-green-500 text-xs">{currentDate + 15}</span>
                 </div>
                 <div className="text-xs text-center">
                   22 Mar - 27 Mar
@@ -297,7 +320,7 @@ const ProductDetailPage = () => {
                   <span className="text-gray-500">Delivered</span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="flex justify-between text-sm">
               <div>

@@ -80,14 +80,14 @@ const Footer = () => {
 
       {/* Bottom Section */}
       {/* <div className="text-center mt-6 text-sm border-t pt-4">
-        Copyright © 2023 Rida Handloom. All Rights Reserved.
+        Copyright © 2025 Ibrahim Rug. All Rights Reserved.
       </div> */}
 
       {/* Floating Buttons */}
       <div className="fixed bottom-6 right-6 flex flex-col items-end space-y-4 z-10">
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/7706999469"
+          href="https://wa.me/+918545976660"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-500 text-white p-3 rounded-full shadow-lg"
