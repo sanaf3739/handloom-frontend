@@ -26,7 +26,7 @@ const ShoppingLayout = () => {
       <Header open={isOpen} setIsOpen={setIsOpen} />
 
       {/* Main Content */}
-      <main className="flex-1 my-20">
+      <main className="flex-1 mt-20">
         <Outlet />
       </main>
 

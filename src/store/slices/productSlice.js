@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const API_URL = import.meta.env.VITE_API_URL + "/products";
 axios.defaults.withCredentials = true;
@@ -25,8 +26,12 @@ export const createProduct = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const response = await axios.post(API_URL, productData);
+      if(response.data.success){
+        toast.success('Product Added Successfully!')
+      }
       return response.data;
     } catch (error) {
+      toast.error('Adding Product Failed!')
       return rejectWithValue(error.response?.data?.message || "Failed to create product");
     }
   }
@@ -38,8 +43,12 @@ export const updateProduct = createAsyncThunk(
   async ({ id, productData }, { rejectWithValue }) => {
     try {
       const response = await axios.patch(`${API_URL}/${id}`, productData);
+      if(response.data.success){
+        toast.success('Product Updated Successfully!')
+      }
       return response.data;
     } catch (error) {
+      toast.error('Updating Product Failed!')
       return rejectWithValue(error.response?.data?.message || "Failed to update product");
     }
   }
@@ -50,8 +59,11 @@ export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(`${API_URL}/${id}`);
-      return id;
+      const response = await axios.delete(`${API_URL}/${id}`);
+      if(response.data.success){
+        toast.success('Product Deleted Successfully!')
+        return id;
+      }
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || "Failed to delete product");
     }

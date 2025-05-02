@@ -15,7 +15,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           <li>
             <Link
               to="/"
-              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              className="block w-full px-4 py-2 text-start hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Home
@@ -24,7 +24,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           <li>
             <Link
               to="/categories/best-seller"
-              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              className="block w-full px-4 py-2 text-start hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Best Seller
@@ -33,7 +33,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           <li>
             <Link
               to="/categories/hand-tufted"
-              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              className="block w-full px-4 py-2 text-start hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Hand Tufted
@@ -42,7 +42,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           <li>
             <Link
               to="/categories/hand-knotted"
-              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              className="block w-full px-4 py-2 text-start hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Hand Knotted
@@ -51,7 +51,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           <li>
             <Link
               to="/categories/hand-woven"
-              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              className="block w-full px-4 py-2 text-start hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Hand Woven
@@ -60,7 +60,7 @@ const MenuItems = ({ isOpen, setIsOpen }) => {
           <li>
             <Link
               to="/cart"
-              className="block w-full py-2 text-center hover:bg-gray-100 rounded-md"
+              className="block w-full px-4 py-2 text-start hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Cart

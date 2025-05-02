@@ -7,7 +7,7 @@ import InputField from "../../components/form/InputField";
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.auth);
+  const { signingUp, error } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const handleSubmit = async (data) => {
@@ -46,10 +46,10 @@ const Signup = () => {
         {error && <p className="text-red-500">{error}</p>}
         <button
           type="submit"
-          disabled={loading}
+          disabled={signingUp}
           className="w-full p-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-600"
         >
-          {loading ? "Signing up..." : "Sign Up"}
+          {signingUp ? "Signing up..." : "Sign Up"}
         </button>
       </Form>
       <p className="mt-4 text-sm text-center">

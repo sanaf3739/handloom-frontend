@@ -22,26 +22,36 @@ import AdminCategories from "./pages/admin/categories";
 import AdminSizes from "./pages/admin/sizes";
 import ProductDetailPage from "./pages/shopping/productDetailPage";
 import ProtecteCheckoutdRoute from "./routes/protectedCheckoutRoute";
-import {OrderSuccess} from "./pages/shopping/orderSuccess";
+import { OrderSuccess } from "./pages/shopping/orderSuccess";
+import AboutUs from "./pages/aboutUs";
+import Contact from "./pages/contact";
+import FAQs from "./pages/FAQs";
+import Terms from "./pages/terms";
+import PrivacyPolicy from "./pages/privacyPolicy";
 
 function App() {
-  const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.auth);
+  // const dispatch = useDispatch();
+  // const { loading } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
+  // useEffect(() => {
+    // dispatch(fetchUser());
+  // }, [dispatch]);
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen text-lg">Loading...</div>
-    ); // ✅ Wait for user to load
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="flex items-center justify-center h-screen text-lg">Loading...</div>
+  //   ); // ✅ Wait for user to load
+  // }
   return (
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<ShoppingLayout />}>
         <Route index element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/categories" element={<Navigate to="/categories/all" replace />} />
         <Route path="/categories/:category" element={<CategoryPage />} />
         {/* <Route path="product/:id" element={<ProductDetails />} /> */}

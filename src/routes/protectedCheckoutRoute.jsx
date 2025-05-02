@@ -1,11 +1,18 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
+import { fetchUser } from "../store/slices/authSlice";
+import Spinner from "../components/loaders/Spinner";
 
 const ProtecteCheckoutdRoute = ({ children }) => {
+  const dispatch = useDispatch();
   const { user, loading } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
 
   useEffect(() => {
     if (!loading) {
@@ -26,10 +33,7 @@ const ProtecteCheckoutdRoute = ({ children }) => {
   }, [user, loading, navigate, location.pathname]);
 
   if (loading) {
-    // console.log("Loading user data...");
-    return (
-      <div className="flex items-center justify-center h-screen text-lg">Loading...</div>
-    );
+    return <Spinner />;
   }
 
   return user ? children || <Outlet /> : null;

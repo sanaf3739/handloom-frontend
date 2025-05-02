@@ -6,7 +6,7 @@ import InputField from "../../components/form/InputField";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loggingIn, error } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
@@ -43,10 +43,10 @@ const Login = () => {
         {error && <p className="text-red-500">{error}</p>}
         <button
           type="submit"
-          disabled={loading}
+          disabled={loggingIn}
           className="w-full p-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-600"
         >
-          {loading ? "Logging in..." : "Login"}
+          {loggingIn ? "Logging in..." : "Login"}
         </button>
       </Form>
       <p className="mt-4 text-sm text-center">

@@ -4,6 +4,7 @@ import ProductCardTwo from "../../components/product/productCardTwo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/slices/productSlice";
 import HandloomBreadcrumb from "../../components/layout/breadcrumb";
+import Spinner from "@/components/loaders/Spinner";
 
 const CategoryPage = () => {
   const { category } = useParams(); // Get category from URL
@@ -18,11 +19,7 @@ const CategoryPage = () => {
 
   // Handle loading state
   if (loading) {
-    return (
-      <div className="container mx-auto py-10 px-6 text-center">
-        <p>Loading products...</p>
-      </div>
-    );
+    return <Spinner />;
   }
 
   // Handle error state

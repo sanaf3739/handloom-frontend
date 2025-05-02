@@ -26,12 +26,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import axios from "axios";
 import InputField from "../../components/form/InputField";
 
@@ -81,6 +76,7 @@ export default function AdminProducts() {
         size: editingProduct.size?._id || "",
         rating: editingProduct.rating?.toString() || "",
       });
+
       setImagePreviews(editingProduct?.images || []);
     } else {
       reset({
@@ -124,7 +120,9 @@ export default function AdminProducts() {
 
     try {
       if (editingProduct) {
-        await dispatch(updateProduct({ id: editingProduct._id, productData: formData })).unwrap();
+        await dispatch(
+          updateProduct({ id: editingProduct._id, productData: formData })
+        ).unwrap();
       } else {
         await dispatch(createProduct(formData)).unwrap();
       }
@@ -228,7 +226,9 @@ export default function AdminProducts() {
                       </div>
                     )}
                   </TableCell>
-                  <TableCell className="font-medium max-w-xs truncate">{product.name}</TableCell>
+                  <TableCell className="font-medium max-w-xs truncate">
+                    {product.name}
+                  </TableCell>
                   <TableCell>{product.category?.name || "N/A"}</TableCell>
                   <TableCell>{product.size?.name || "N/A"}</TableCell>
                   <TableCell>₹{product.price?.toLocaleString() || "0"}</TableCell>
@@ -297,6 +297,7 @@ export default function AdminProducts() {
                   type="number"
                   placeholder="0.00"
                   validation={{
+                    required: "Original Price is required",
                     min: { value: 0, message: "Original price must be positive" },
                   }}
                 />
@@ -400,7 +401,7 @@ export default function AdminProducts() {
                     {imagePreviews.map((imagePreview, index) => (
                       <div key={index} className="relative">
                         <img
-                          src={imagePreview}
+                          src={editingProduct ? imagePreview.url : imagePreview}
                           alt={`Product preview ${index + 1}`}
                           className="w-24 h-24 object-cover rounded-md border border-gray-200"
                         />
@@ -420,15 +421,18 @@ export default function AdminProducts() {
               </div>
 
               <div className="flex gap-2 justify-end pt-4">
-                <Button 
-                  type="button" 
-                  variant="outline"
-                  onClick={resetDialog}
-                >
+                <Button type="button" variant="outline" onClick={resetDialog}>
                   Cancel
                 </Button>
-                <Button type="submit">
-                  {editingProduct ? "Update" : "Create"} Product
+                <Button type="submit" disabled={loading}>
+                  {editingProduct
+                    ? loading
+                      ? "Updating..."
+                      : "Update"
+                    : loading
+                    ? "Creating..."
+                    : "Create"}{" "}
+                  Product
                 </Button>
               </div>
             </form>
