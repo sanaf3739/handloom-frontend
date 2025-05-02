@@ -12,15 +12,10 @@ const CategoryPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts({category: category})); // Fetch products once
+    dispatch(fetchProducts({ category: category })); // Fetch products once
   }, [dispatch, category]);
 
   // Filter products based on the selected category
-
-  // Handle loading state
-  if (loading) {
-    return <Spinner />;
-  }
 
   // Handle error state
   if (error) {
@@ -33,23 +28,27 @@ const CategoryPage = () => {
 
   return (
     <div className="container mx-auto py-10 px-6">
-        <HandloomBreadcrumb category={category}/>
+      <HandloomBreadcrumb category={category} />
       {/* <h2 className="text-3xl font-bold text-center mb-6">
         {category === "All" ? "All Products" : `${category.replace("-", " ")}`}
       </h2> */}
 
       {/* Display Filtered Products */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 my-20">
-        {products.length > 0 ? (
-          products.map((product) => (
-            <ProductCardTwo key={product._id} product={product} category={category} />
-          ))
-        ) : (
-          <p className="text-center text-gray-500 col-span-full">
-            No products found in this category.
-          </p>
-        )}
-      </div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 my-20">
+          {products.length > 0 ? (
+            products.map((product) => (
+              <ProductCardTwo key={product._id} product={product} category={category} />
+            ))
+          ) : (
+            <p className="text-center text-gray-500 col-span-full">
+              No products found in this category.
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
