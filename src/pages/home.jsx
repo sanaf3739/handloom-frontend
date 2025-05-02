@@ -42,10 +42,6 @@ export default function Home() {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-
-  if (loading) {
-    return <Spinner />;
-  }
   
   return (
     // Add pt-24 to add padding for the fixed header
@@ -92,14 +88,17 @@ export default function Home() {
       <HomeCategory
         title="Floral Rug"
         products={products.filter((product) => product?.category?.slug === "floral-rug")}
+        loading={loading}
       />
       <HomeCategory
         title="Modern Rug"
         products={products.filter((product) => product?.category?.slug === "modern-rug")}
+        loading={loading}
       />
       <HomeCategory
         title="Oushak Rug"
         products={products.filter((product) => product?.category?.slug === "oushak-rug")}
+        loading={loading}
       />
       <Testimonials />
       <Blog />

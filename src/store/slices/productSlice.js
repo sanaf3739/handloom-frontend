@@ -11,7 +11,7 @@ export const fetchProducts = createAsyncThunk(
   async (filters = {}, { rejectWithValue }) => {
     try {
       const response = await axios.get(API_URL, {
-        params: filters
+        params: filters,
       });
       return response.data;
     } catch (error) {
@@ -26,12 +26,12 @@ export const createProduct = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const response = await axios.post(API_URL, productData);
-      if(response.data.success){
-        toast.success('Product Added Successfully!')
+      if (response.data.success) {
+        toast.success("Product Added Successfully!");
       }
       return response.data;
     } catch (error) {
-      toast.error('Adding Product Failed!')
+      toast.error("Adding Product Failed!");
       return rejectWithValue(error.response?.data?.message || "Failed to create product");
     }
   }
@@ -43,12 +43,12 @@ export const updateProduct = createAsyncThunk(
   async ({ id, productData }, { rejectWithValue }) => {
     try {
       const response = await axios.patch(`${API_URL}/${id}`, productData);
-      if(response.data.success){
-        toast.success('Product Updated Successfully!')
+      if (response.data.success) {
+        toast.success("Product Updated Successfully!");
       }
       return response.data;
     } catch (error) {
-      toast.error('Updating Product Failed!')
+      toast.error("Updating Product Failed!");
       return rejectWithValue(error.response?.data?.message || "Failed to update product");
     }
   }
@@ -60,8 +60,8 @@ export const deleteProduct = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios.delete(`${API_URL}/${id}`);
-      if(response.data.success){
-        toast.success('Product Deleted Successfully!')
+      if (response.data.success) {
+        toast.success("Product Deleted Successfully!");
         return id;
       }
     } catch (error) {
@@ -90,16 +90,35 @@ const productSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+      .addCase(createProduct.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(createProduct.fulfilled, (state, action) => {
+        state.loading = false;
         state.products.push(action.payload);
       })
+      .addCase(createProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateProduct.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(updateProduct.fulfilled, (state, action) => {
+        state.loading = false;
         state.products = state.products.map((product) =>
           product._id === action.payload._id ? action.payload : product
         );
       })
+      .addCase(updateProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload
+      })
       .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.products = state.products.filter((product) => product._id !== action.payload);
+        state.products = state.products.filter(
+          (product) => product._id !== action.payload
+        );
       });
   },
 });

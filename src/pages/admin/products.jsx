@@ -245,7 +245,7 @@ export default function AdminProducts() {
                       size="sm"
                       onClick={() => handleDeleteProduct(product._id)}
                     >
-                      Delete
+                      {loading ? "Deleting..." : "Delete"}
                     </Button>
                   </TableCell>
                 </TableRow>

@@ -5,8 +5,9 @@ import { sliderSettings } from "../../config/homeCategory";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Spinner from "../loaders/Spinner";
 
-const HomeCategory = ({ title, products, viewAllLink = "#" }) => {
+const HomeCategory = ({ title, products, loading }) => {
   const sliderRef = useRef(null);
 
   // Navigation handlers
@@ -32,12 +33,6 @@ const HomeCategory = ({ title, products, viewAllLink = "#" }) => {
           </div>
 
           <div className="flex items-center mt-4 sm:mt-0">
-            {/* <a 
-              href={viewAllLink} 
-              className="mr-6 text-sm font-medium hover:underline transition-all duration-300"
-            >
-              View All
-            </a> */}
             <div className="flex items-center gap-3">
               <button
                 onClick={goToPrev}
@@ -59,7 +54,7 @@ const HomeCategory = ({ title, products, viewAllLink = "#" }) => {
 
         <div className="mt-8">
           <div className="slider-container">
-            {products?.length ? (
+            {loading ? (<Spinner/>) : (products?.length ? (
               <Slider ref={sliderRef} {...sliderSettings}>
                 {products.map((product) => (
                   <div key={product._id} className="px-2 mb-10 group">
@@ -71,7 +66,7 @@ const HomeCategory = ({ title, products, viewAllLink = "#" }) => {
               </Slider>
             ) : (
               <p>No products found</p>
-            )}
+            ))}
           </div>
         </div>
       </div>
