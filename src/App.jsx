@@ -9,14 +9,10 @@ import AdminDashboard from "./pages/admin/dashboard";
 import AdminOrders from "./pages/admin/orders";
 import AdminProducts from "./pages/admin/products";
 import ShoppingLayout from "./layouts/shoppingLayout";
-import ProductDetails from "./pages/shopping/productDetails";
 import Cart from "./pages/shopping/cart";
 import Checkout from "./pages/shopping/checkout";
 import ProtectedRoute from "./routes/protectedRoute";
 import PageNotFound from "./pages/page-not-found";
-import { fetchUser } from "./store/slices/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import CategoryPage from "./pages/shopping/categoryPage";
 import AdminCategories from "./pages/admin/categories";
 import AdminSizes from "./pages/admin/sizes";
@@ -30,18 +26,6 @@ import Terms from "./pages/terms";
 import PrivacyPolicy from "./pages/privacyPolicy";
 
 function App() {
-  // const dispatch = useDispatch();
-  // const { loading } = useSelector((state) => state.auth);
-
-  // useEffect(() => {
-    // dispatch(fetchUser());
-  // }, [dispatch]);
-
-  // if (loading) {
-  //   return (
-  //     <div className="flex items-center justify-center h-screen text-lg">Loading...</div>
-  //   ); // ✅ Wait for user to load
-  // }
   return (
     <Routes>
       {/* Public Routes */}
