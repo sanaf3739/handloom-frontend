@@ -47,7 +47,7 @@ const AboutUs = () => {
           <div>
             <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
             <p className="mb-4 leading-relaxed">
-              Ibrahim Rugs is based out in Jaunpur which is known as Carpet City, Uttar
+              Ibrahim Rugs is based out in Mirzapur which is known as Carpet City, Uttar
               Pradesh, India. We offer an assortment of carpets and rugs online for the
               ease of our customers. We are inspired by our appreciation for weaving. We
               are characterized by the Indian legacy and global aesthetics and offer

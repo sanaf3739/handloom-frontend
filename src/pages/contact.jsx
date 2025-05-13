@@ -9,7 +9,7 @@ import axios from "axios";
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formError, setFormError] = useState(false)
+  const [formError, setFormError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (formData, methods) => {
@@ -27,8 +27,8 @@ export default function Contact() {
       }
     } catch (error) {
       console.log(error);
-      if(error?.response?.data?.error){
-        setFormError(true)
+      if (error?.response?.data?.error) {
+        setFormError(true);
       }
       if (error?.response?.data?.errors) {
         const backendErrors = error.response.data.errors;
@@ -45,7 +45,7 @@ export default function Contact() {
       setLoading(false);
       setTimeout(() => {
         setFormSubmitted(false);
-        setFormError(false)
+        setFormError(false);
       }, 5000);
     }
   };
@@ -105,8 +105,13 @@ export default function Contact() {
                     <div>
                       <h3 className="font-medium">Email</h3>
                       <p className="text-stone-600 mt-1">
-                        <Link to="mailto:imtiazali661986@gmail.com">
-                          imtiazali661986@gmail.com
+                        <Link to="mailto:support@ibrahimrug.com">
+                          support@ibrahimrug.com
+                        </Link>
+                      </p>
+                      <p className="text-stone-600 mt-1">
+                        <Link to="mailto:imtiaz@ibrahimrug.com">
+                          imtiaz@ibrahimrug.com
                         </Link>
                       </p>
                     </div>
@@ -155,7 +160,7 @@ export default function Contact() {
                   <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 mb-6">
                     <p className="font-medium">Could not send the data!</p>
                     <p className="mt-1">
-                      sorry for inconvenience we will correct it soon 
+                      sorry for inconvenience we will correct it soon
                     </p>
                   </div>
                 ) : null}

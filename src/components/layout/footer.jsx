@@ -41,6 +41,9 @@ const Footer = () => {
             <a href="#" className="transition-colors duration-200 hover:text-stone-400">
               <Twitter size={20} />
             </a>
+            <a href="https://www.etsy.com/shop/ibrahimrugs/?etsrc=sdt" target="_blank" className="transition-colors duration-200 hover:text-stone-400 flex items-center">
+              <img height="30" width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Etsy_logo.svg/2560px-Etsy_logo.svg.png" alt="" />
+            </a>
           </div>
         </div>
 
@@ -125,10 +128,19 @@ const Footer = () => {
             <li className="flex items-center gap-2">
               <Mail size={20} className="text-stone-700 flex-shrink-0" />
               <a
-                href="mailto:imtiazali661986@gmail.com"
+                href="mailto:support@ibrahimrug.com"
                 className="text-sm hover:text-stone-600 transition-colors duration-200"
               >
-                imtiazali661986@gmail.com
+                support@ibrahimrug.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail size={20} className="text-stone-700 flex-shrink-0" />
+              <a
+                href="mailto:imtiaz@ibrahimrug.com"
+                className="text-sm hover:text-stone-600 transition-colors duration-200"
+              >
+                imtiaz@ibrahimrug.com
               </a>
             </li>
           </ul>
